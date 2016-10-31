@@ -1,0 +1,22 @@
+{
+  "name": "conquest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tcreeds/conquest.git"
+  },
+  "author": "Trevor Creed",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/tcreeds/conquest/issues"
+  },
+  "homepage": "https://github.com/tcreeds/conquest#readme",
+  "dependencies": {
+    "pixi.js": "^4.1.0"
+  }
+}
