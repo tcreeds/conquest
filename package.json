@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tcreeds/conquest#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "pixi.js": "^4.1.0"
   }
 }
