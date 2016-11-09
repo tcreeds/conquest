@@ -8,13 +8,12 @@ server.listen(port, function () {
     console.log('Server listening at port %d', port);
 });
 
-// Routing
 app.use(express.static(__dirname + '/public'));
 
-// Chatroom
 
 var idGen = 0;
-var colors = ['red', 'green', 'blue']
+var colors = ['red', 'green', 'blue'];
+var players = [];
 
 io.on('connection', function (socket) {
     var addedUser = false;
@@ -26,6 +25,16 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('playerLeft', {
             id: id
         });
+        for (var i = 0; i < players.length; i++)
+        {
+            if (players[i].id == id)
+            {
+                players.splice(i, 1);
+            }
+        }
+    });
+    socket.on('move', function(data) {
+        socket.broadcast.emit('move', data);
     });
     
     var playerData = {
@@ -36,5 +45,8 @@ io.on('connection', function (socket) {
     
     socket.broadcast.emit('playerJoined', playerData);
     socket.emit('connected', playerData);
+    for (var i = 0; i < players.length; i++)
+        socket.emit('playerJoined', players[i]);
+    players.push(playerData); 
   
 });
